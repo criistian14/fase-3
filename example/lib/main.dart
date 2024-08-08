@@ -80,15 +80,6 @@ class _MyAppState extends State<MyApp> {
                       return;
                     }
 
-                    result.when(
-                      (success) {
-                        final data = success.value;
-                      },
-                      (failure) {
-                        final error = failure.exception;
-                      },
-                    );
-
                     setState(() {
                       _error = null;
                       _categories = result.getSuccessValue();
