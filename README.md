@@ -91,7 +91,7 @@ Esta aplicación utiliza una variedad de librerías para mejorar su funcionalida
 1. **Clonar el repositorio**:
    ```bash
    git clone https://github.com/criistian14/fase-3
-   cd ruta-practica
+   cd fase-3
    ```
 
 2. **Instalar dependencias**:
@@ -101,6 +101,7 @@ Esta aplicación utiliza una variedad de librerías para mejorar su funcionalida
 3. **Ejecutar la aplicación**:
    ```bash
    cd example
+   flutter pub get
    flutter run 
    ```
 ---
