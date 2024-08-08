@@ -70,10 +70,10 @@ void main() {
         // assert
         verify(() => mockNetworkHelper.isConnected).called(1);
         verifyNever(() => mockProductRemoteDataSource.getAllProducts());
-        expect(result, isA<Failure<Exception>>());
+        expect(result, isA<Failure<List<Product>>>());
         expect(
           result,
-          const Failure<Exception>(NoInternetConnectionError()),
+          const Failure<List<Product>>(NoInternetConnectionError()),
         );
       },
     );
@@ -94,10 +94,10 @@ void main() {
         // assert
         verify(() => mockNetworkHelper.isConnected).called(1);
         verify(() => mockProductRemoteDataSource.getAllProducts()).called(1);
-        expect(result, isA<Failure<Exception>>());
+        expect(result, isA<Failure<List<Product>>>());
         expect(
           result,
-          const Failure<Exception>(
+          const Failure<List<Product>>(
             EndPointError(
               code: 400,
               endpoint: '',
@@ -149,10 +149,10 @@ void main() {
         // assert
         verify(() => mockNetworkHelper.isConnected).called(1);
         verifyNever(() => mockProductRemoteDataSource.getProductDetail(1));
-        expect(result, isA<Failure<Exception>>);
+        expect(result, isA<Failure<Product>>());
         expect(
           result,
-          const Failure<Exception>(NoInternetConnectionError()),
+          const Failure<Product>(NoInternetConnectionError()),
         );
       },
     );
@@ -173,10 +173,10 @@ void main() {
         // assert
         verify(() => mockNetworkHelper.isConnected).called(1);
         verify(() => mockProductRemoteDataSource.getProductDetail(1)).called(1);
-        expect(result, isA<Failure<Exception>>);
+        expect(result, isA<Failure<Product>>());
         expect(
           result,
-          const Failure<Exception>(
+          const Failure<Product>(
             EndPointError(
               code: 400,
               endpoint: '',
@@ -233,10 +233,10 @@ void main() {
         verifyNever(
           () => mockProductRemoteDataSource.getProductsByCategory(''),
         );
-        expect(result, isA<Failure<Exception>>());
+        expect(result, isA<Failure<List<Product>>>());
         expect(
           result,
-          const Failure<Exception>(NoInternetConnectionError()),
+          const Failure<List<Product>>(NoInternetConnectionError()),
         );
       },
     );
@@ -258,10 +258,10 @@ void main() {
         verify(() => mockNetworkHelper.isConnected).called(1);
         verify(() => mockProductRemoteDataSource.getProductsByCategory(''))
             .called(1);
-        expect(result, isA<Failure<Exception>>());
+        expect(result, isA<Failure<List<Product>>>());
         expect(
           result,
-          const Failure<Exception>(
+          const Failure<List<Product>>(
             EndPointError(
               code: 400,
               endpoint: '',

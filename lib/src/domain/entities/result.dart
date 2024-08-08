@@ -8,11 +8,31 @@ sealed class Result<T> {
 class Success<T> extends Result<T> {
   const Success(this.value);
   final T value;
+
+  @override
+  bool operator ==(Object other) {
+    return other is Success &&
+        other.runtimeType == runtimeType &&
+        value == other.value;
+  }
+
+  @override
+  int get hashCode => value.hashCode;
 }
 
 class Failure<T> extends Result<T> {
   const Failure(this.exception);
   final Exception exception;
+
+  @override
+  bool operator ==(Object other) {
+    return other is Failure &&
+        other.runtimeType == runtimeType &&
+        exception == other.exception;
+  }
+
+  @override
+  int get hashCode => exception.hashCode;
 }
 
 // * Extension

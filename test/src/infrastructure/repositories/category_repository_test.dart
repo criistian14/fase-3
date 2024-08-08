@@ -68,10 +68,10 @@ void main() {
         // assert
         verify(() => mockNetworkHelper.isConnected).called(1);
         verifyNever(() => mockCategoryRemoteDataSource.getAllCategories());
-        expect(result, isA<Failure<Exception>>());
+        expect(result, isA<Failure<List<Category>>>());
         expect(
           result,
-          const Failure<Exception>(NoInternetConnectionError()),
+          const Failure<List<Category>>(NoInternetConnectionError()),
         );
       },
     );
@@ -92,10 +92,10 @@ void main() {
         // assert
         verify(() => mockNetworkHelper.isConnected).called(1);
         verify(() => mockCategoryRemoteDataSource.getAllCategories()).called(1);
-        expect(result, isA<Failure<Exception>>());
+        expect(result, isA<Failure<List<Category>>>());
         expect(
           result,
-          const Failure<Exception>(
+          const Failure<List<Category>>(
             EndPointError(
               code: 400,
               endpoint: '',
